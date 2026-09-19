@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-bg: #f3f0e8;
+  --color-surface: #fffcf6;
+  --color-elevated: #ece8df;
+  --color-fg: #1c1b18;
+  --color-muted: #6b6860;
+  --color-subtle: #9a968c;
+  --color-border: color-mix(in oklab, #1c1b18 12%, transparent);
+  --color-border-strong: color-mix(in oklab, #1c1b18 20%, transparent);
+  --color-accent: #1c1b18;
+  --color-accent-fg: #f3f0e8;
+  --color-ok: #2f7a64;
+  --color-warn: #9a6b1f;
+  --color-err: #b4454c;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+:root {
+  --office-floor: #e8e2d6;
+  --office-room: #fffcf6;
+  --office-stroke: color-mix(in oklab, #1c1b18 14%, transparent);
+  --office-ink: #1c1b18;
+  --office-muted: #6b6860;
+  --office-desk: #ddd6c8;
+  --office-screen: #cfc8ba;
+  --office-grid: color-mix(in oklab, #1c1b18 6%, transparent);
+  --office-bubble: #1c1b18;
+  --office-bubble-fg: #fffcf6;
+  --office-scan: transparent;
+}
+
+html[data-theme="night"] {
+  --color-bg: #0b0c0e;
+  --color-surface: #111317;
+  --color-elevated: #171a1f;
+  --color-fg: #ececec;
+  --color-muted: #8a8f98;
+  --color-subtle: #5c616a;
+  --color-border: color-mix(in oklab, #ececec 10%, transparent);
+  --color-border-strong: color-mix(in oklab, #ececec 18%, transparent);
+  --color-accent: #d7d9dc;
+  --color-accent-fg: #0b0c0e;
+  --color-ok: #6fbfa3;
+  --color-warn: #c4a15a;
+  --color-err: #c56b72;
+
+  --office-floor: #0c1016;
+  --office-room: #181c22;
+  --office-stroke: color-mix(in oklab, #ececec 12%, transparent);
+  --office-ink: #e8eaee;
+  --office-muted: #8b939e;
+  --office-desk: #1e242c;
+  --office-screen: #151920;
+  --office-grid: color-mix(in oklab, #ececec 4%, transparent);
+  --office-bubble: #121418;
+  --office-bubble-fg: #e8eaee;
+  --office-scan: color-mix(in oklab, #0a0c0f 7%, transparent);
+}
+
+@layer base {
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-subtle);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
